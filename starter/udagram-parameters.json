@@ -1,6 +1,14 @@
 [
+    {
+        "ParameterKey": "EnvironmentName",
+        "ParameterValue": "dev-01"
+    },
 	{
-		"ParameterKey": "Add you parameters here",
-		"ParameterValue": "Add you parameters here"
-	}
+        "ParameterKey": "imageId",
+        "ParameterValue": "ami-0986e6d2d2bc905ca"
+    },
+	{
+        "ParameterKey": "anyWhereCIDR",
+        "ParameterValue": "0.0.0.0/0"
+    }
 ]
