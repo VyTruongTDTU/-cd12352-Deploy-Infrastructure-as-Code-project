@@ -1,49 +1,34 @@
-# ND9991 - Course 2 - Infrastructure as Code
+## Deploy a high-availability web app using CloudFormation
 
-This repository contains the starter code for the final project of course 2 Infrastructure as Code in the Cloud DevOps Engineer Nanodegree.
+### Scenario
+Your company is creating an Instagram clone called Udagram, and the requirement is to deploy this new application to the AWS infrastructure using Infrastructure as Code.
 
-Please note that all supporting material for this course can be found in [this Github repository](https://github.com/udacity/cd12352-Deploy-Infrastructure-as-Code).
+You have been tasked with provisioning the required infrastructure and deploying a dummy application, along with the necessary supporting software.
 
-# Deploy a high-availability web app using CloudFormation
+Since the underlying network infrastructure will be maintained by a separate team, you must create independent stacks for the network infrastructure and the application itself.
 
-In this project, you’ll deploy web servers for a highly available web app using CloudFormation. You will write the code that creates and deploys the infrastructure and application for an Instagram-like app from the ground up. You will begin with deploying the networking components, followed by servers, security roles and software.  The procedure you follow here will become part of your portfolio of cloud projects. You’ll do it exactly as it’s done on the job - following best practices and scripting as much as possible. 
+Infrastructure spin up and tear down needs to be automated so that each team can create and discard testing environments on demand.
 
-## Getting Started
 
-### Dependencies
+To access the web app hosted click [here](http://projec-webap-eh8l8x1txque-296288662.us-east-2.elb.amazonaws.com/) 
 
-1. AWS CLI installed and configured in your workspace using an AWS IAM role with Administrator permissions (as reviewed in the course).
-
-2. Access to a diagram creator software of your choice.
-
-3. Your favorite IDE or text editor ready to work.
-
-### Installation
-
-You can get started by cloning this repo in your local workspace:
-
+### Creating the Network Stack
 ```
-git clone git@github.com:udacity/-cd12352-Deploy-Infrastructure-as-Code-project.git
+create.sh project-2-network networks.yml network-parameters.json
 ```
 
-## Testing
+### Updating the Network Stack
+```
+update.sh project-2-network networks.yml network-parameters.json
+```
 
-No tests required for this project.
+### Creating the Server Stack
+```
+create.sh project-2-udagram udagram.yml udagram-parameters.json
+```
 
-## Project Instructions
 
-1. Design your solution diagram using a tool of your choice and export it into an image file.
-
-2. Add all the CloudFormation networking resources and parameters to the `network.yml` and `network-parameters.json` files inside the `starter` folder of this repo.
-
-3. Add all the CloudFormation application resources and parameters to the `udagram.yml` and `udagram-parameters.json` files inside the `starter` folder of this repo.
-
-4. Create any required script files to automate spin up and tear down of the CloudFormation stacks.
-
-5. Update the README.md file in the `starter` folder with creation and deletion instructions, as well as any useful information regarding your solution.
-   
-6.  Submit your solution as a GitHub link or a zipped file containing the diagram image, CloudFormation yml and json files, automation scripts and README file.
-
-## License
-
-[License](LICENSE.txt)
+### Updating the Server Stack
+```
+update.sh project-2-udagram udagram.yml udagram-parameters.json
+```
